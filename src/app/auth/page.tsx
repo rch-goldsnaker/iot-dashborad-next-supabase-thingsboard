@@ -1,14 +1,14 @@
 import React from "react";
 import { AuthForm } from "../../components/forms/AuthForm";
-import readUserSession from "@/actions";
+// import readUserSession from "@/actions";
 import { redirect } from "next/navigation";
 import { Icons } from "@/components/icons";
 
 export default async function page() {
-  const { data } = await readUserSession();
-  if (data.session) {
-    return redirect("/");
-  }
+  // const { data } = await readUserSession();
+  // if (data.session) {
+  //   return redirect("/");
+  // }
   return (
     <>
       <>
