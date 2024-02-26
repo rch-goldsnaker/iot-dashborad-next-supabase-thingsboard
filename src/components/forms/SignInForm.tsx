@@ -15,7 +15,7 @@ import { toast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/icons";
-// import { signInWithEmailAndPassword } from "@/actions";
+import { signInWithEmailAndPassword } from "@/actions";
 import { useTransition } from "react";
 
 const FormSchema = z.object({
@@ -38,33 +38,33 @@ export default function SignInForm() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log('data',data)
-    // startTransition(async () => {
-    //   const result = await signInWithEmailAndPassword(data);
-    //   const { error } = result;
+    startTransition(async () => {
+      const result = await signInWithEmailAndPassword(data);
+      const { error } = result;
 
-    //   if (error?.message) {
-    //     console.log(error.message);
-    //     toast({
-    //       variant: "destructive",
-    //       title: "You submitted the following values:",
-    //       description: (
-    //         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-    //           <code className="text-white">{error.message}</code>
-    //         </pre>
-    //       ),
-    //     });
-    //   } else {
-    //     console.log("succes");
-    //     toast({
-    //       title: "You submitted the following values:",
-    //       description: (
-    //         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-    //           <code className="text-white">Successfully Login</code>
-    //         </pre>
-    //       ),
-    //     });
-    //   }
-    // });
+      if (error?.message) {
+        console.log(error.message);
+        toast({
+          variant: "destructive",
+          title: "You submitted the following values:",
+          description: (
+            <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+              <code className="text-white">{error.message}</code>
+            </pre>
+          ),
+        });
+      } else {
+        console.log("succes");
+        toast({
+          title: "You submitted the following values:",
+          description: (
+            <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+              <code className="text-white">Successfully Login</code>
+            </pre>
+          ),
+        });
+      }
+    });
   }
 
   return (
