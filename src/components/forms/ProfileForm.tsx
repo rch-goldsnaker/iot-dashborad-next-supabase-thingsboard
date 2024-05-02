@@ -4,10 +4,10 @@ import { useGetUserSB } from "@/hooks/useGetUserSB";
 
 export const ProfileForm = () => {
   const res = useGetUserSB();
-  const email = res.userInfo?.session.user.email;
-  const avatarUrl = res.userInfo?.session.user.user_metadata.avatar_url;
-  const userName = res.userInfo?.session.user.user_metadata.user_name;
-  const userFullName = res.userInfo?.session.user.user_metadata.full_name;
+  const email = res.userInfo?.session?.user?.email;
+  const avatarUrl = res.userInfo?.session?.user?.user_metadata?.avatar_url;
+  const userName = res.userInfo?.session?.user?.user_metadata?.user_name;
+  const userFullName = res.userInfo?.session?.user?.user_metadata?.full_name;
 
   return (
     <div>
